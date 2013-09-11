@@ -570,7 +570,12 @@ do_optrace(pTHX_ pMY_CXT){
         Private(OPpCONST_ARYBASE,      " ARYBASE");
 #endif
         Private(OPpCONST_BARE,         " BARE");
+#ifdef OPpCONST_WARNING
         Private(OPpCONST_WARNING,      " WARNING");
+#endif
+#ifdef OPpCONST_FOLDED
+        Private(OPpCONST_FOLDED,      " FOLDED");
+#endif
 
         break;
 
@@ -656,13 +661,13 @@ do_optrace(pTHX_ pMY_CXT){
 #ifdef OPpENTERSUB_NOMOD
         Private(OPpENTERSUB_NOMOD,   " NOMOD");
 #endif
+        Private(OPpENTERSUB_INARGS,  " INARGS");
     }
 
         /* fall through */
     case OP_RV2CV:
         Private(OPpENTERSUB_AMPER,   " AMPER");
         Private(OPpENTERSUB_NOPAREN, " NOPAREN");
-        Private(OPpENTERSUB_INARGS,  " INARGS");
 
         if(o->op_type == OP_RV2CV){
 #ifdef OPpMAY_RETURN_CONSTANT
@@ -770,6 +775,18 @@ do_optrace(pTHX_ pMY_CXT){
     case OP_ENTEREVAL:
 #ifdef OPpEVAL_HAS_HH
         Private(OPpEVAL_HAS_HH, " HAS_HH");
+#endif
+#ifdef OPpEVAL_UNICODE
+        Private(OPpEVAL_UNICODE, " UNICODE");
+#endif
+#ifdef OPpEVAL_BYTES
+        Private(OPpEVAL_BYTES, " BYTES");
+#endif
+#ifdef OPpEVAL_COPHH
+        Private(OPpEVAL_COPHH, " COPHH");
+#endif
+#ifdef OPpEVAL_RE_REPARSING
+        Private(OPpEVAL_RE_REPARSING, " RE_REPARSING");
 #endif
         break;
 
